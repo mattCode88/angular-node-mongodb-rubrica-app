@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogPageComponent implements OnInit {
 
+  typeLog = 'login';
+
   constructor() { }
 
   ngOnInit(): void {

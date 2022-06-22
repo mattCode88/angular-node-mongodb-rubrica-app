@@ -5,20 +5,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LogPageComponent } from './views/log-page/log-page.component';
-import { RegisterPageComponent } from './views/register-page/register-page.component';
+import { AuthModule } from './modules/auth/auth.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LogPageComponent,
-    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

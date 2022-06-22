@@ -1,0 +1,22 @@
+<!-- <p *ngIf="typeLog === 'login'">log-form works!</p> -->
+<form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="username" class="label">Username</label>
+    <div>
+      <input type="text" class="input" id="username"  placeholder="Username" formControlName="username">
+    </div>
+  </div>
+  <div class="field">
+    <label for="email" class="label">Email</label>
+    <div>
+      <input type="text" class="input" id="email"  placeholder="Email" formControlName="email">
+    </div>
+  </div>
+  <div class="field">
+    <label for="password" class="label">Password</label>
+    <div>
+      <input type="text" class="input" id="password"  placeholder="Password" formControlName="password">
+    </div>
+  </div>
+  <button type="submit">invia</button>
+</form>

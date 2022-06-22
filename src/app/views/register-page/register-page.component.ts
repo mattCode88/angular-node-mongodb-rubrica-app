@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPageComponent implements OnInit {
 
+  typeLog = 'register';
+
   constructor() { }
 
   ngOnInit(): void {
