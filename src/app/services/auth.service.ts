@@ -17,4 +17,8 @@ export class AuthService {
   createUsers(form: FormGroup): Observable<User[]> {
     return this.http.post<User[]>(`${this.ENDPOINT}/auth`, form)
   };
+
+  getUser(username: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.ENDPOINT}/auth/${username}`)
+  }
 }
