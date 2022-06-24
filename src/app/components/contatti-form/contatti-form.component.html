@@ -1,0 +1,45 @@
+<p>contatti-form works!</p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="nome" class="label">Nome</label>
+    <div>
+      <input type="text" class="input" id="nome"  placeholder="Nome" formControlName="nome">
+    </div>
+  </div>
+  <div class="field">
+    <label for="cognome" class="label">Cognome</label>
+    <div>
+      <input type="text" class="input" id="cognome"  placeholder="Cognome" formControlName="cognome">
+    </div>
+  </div>
+  <div class="field">
+    <label for="telefono" class="label">Telefono</label>
+    <div>
+      <input type="number" class="input" id="telefono"  placeholder="Telefono" formControlName="telefono">
+    </div>
+  </div>
+  <div class="field">
+    <label for="indirizzo" class="label">Indirizzo</label>
+    <div>
+      <input type="text" class="input" id="indirizzo"  placeholder="Indirizzo" formControlName="indirizzo">
+    </div>
+  </div>
+  <div class="field">
+    <label for="email" class="label">Email</label>
+    <div>
+      <input type="text" class="input" id="email"  placeholder="Email" formControlName="email">
+    </div>
+  </div>
+  <div class="field">
+    <label for="dataDiNascita" class="label">Data di Nascita</label>
+    <div>
+      <input type="date" class="input" id="dataDiNascita" formControlName="dataDiNascita">
+    </div>
+  </div>
+  <div class="field">
+    <label for="username" class="label">Username</label>
+    <div>
+      <input type="text" class="input" id="username"  placeholder="Username" formControlName="username">
+    </div>
+  </div>
+</form>

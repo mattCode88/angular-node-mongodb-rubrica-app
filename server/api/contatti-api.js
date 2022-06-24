@@ -1,13 +1,10 @@
 const express = require('express');
-const ContattiCollection = require('../models/contatti');
 const router = express.Router();
+const contattiController = require('../controllers/contatti-controller');
 
 
 
-router.get('/contatti', async(req, res) => {
-  const contatti = await ContattiCollection.find();
-  res.send(contatti);
-});
+router.get('/contatti/:username', contattiController.getUserForUsername);
 
 
 module.exports = router;

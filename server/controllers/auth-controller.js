@@ -1,4 +1,4 @@
-const UserCollection = require('../models/user');
+const UserCollection = require('../models/User');
 const bcrypt = require('bcrypt');
 const PasswordValidator = require('../validators/password-validator');
 
@@ -13,8 +13,8 @@ exports.createUser = async(req, res) => {
   const user = new UserCollection({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
-    // password: hashedPassword
+    // password: req.body.password
+    password: hashedPassword
   });
 
   user.save(user).then(data => res.send(data))
@@ -33,10 +33,11 @@ exports.findUserEmail = async (req, res) => {
 
 exports.verifyPasswd = async (req, res) => {
   const searchUser = await UserCollection.findOne({ username: req.body.username });
-  if (searchUser.password !== req.body.password) {
+  const bool = bcrypt.compareSync(req.body.password, searchUser.password);
+  if (bool) {
       res.send(true)
-    } else {
-      res.send(false)
+  } else {
+    res.send(false)
     }
 }
 

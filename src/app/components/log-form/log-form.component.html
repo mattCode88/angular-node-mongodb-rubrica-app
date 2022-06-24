@@ -18,7 +18,7 @@
   <div class="field">
     <label for="password" class="label">Password</label>
     <div>
-      <input type="text" class="input" id="password"  placeholder="Password" formControlName="password">
+      <input type="password" class="input" id="password"  placeholder="Password" formControlName="password">
     </div>
     <p class="error" *ngIf="logForm.controls['password'].hasError('required') && typeLog === 'register'">*Il campo è richiesto.</p>
     <p class="error" *ngIf="logForm.controls['password'].hasError('invalidPassword') && typeLog === 'register'">*La password deve contenere almeno una maiuscola un numero, un simbolo e avere almeno 8 caratteri.</p>

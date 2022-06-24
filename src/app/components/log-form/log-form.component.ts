@@ -90,14 +90,13 @@ export class LogFormComponent implements OnInit {
 
             if (!res) {
 
-              console.log('Benvenuto')
-              this.authServices.login(this.logForm.value.username)
-              this.router.navigateByUrl('/contatti')
+              this.erroreDiLog.status = true;
+              this.erroreDiLog.message = 'Password errata.'
 
             } else {
 
-              this.erroreDiLog.status = true;
-              this.erroreDiLog.message = 'Password errata.'
+              this.authServices.login(this.logForm.value.username)
+              this.router.navigateByUrl('/contatti')
 
             }
           })
