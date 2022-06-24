@@ -1,13 +1,13 @@
 <header class="header">
   <nav class="nav row space-between">
     <ul class="flex item-center">
-      <li><a href="">ciao</a></li>
-      <li><a href="">ciao</a></li>
+      <li><a routerLink="">HOME</a></li>
+      <li><a routerLink="contatti">CONTATTI</a></li>
     </ul>
     <ul class="flex item-center">
-      <li><a routerLink="/auth/register">Resgister</a></li>
-      <li><a routerLink="/auth/login">Login</a></li>
-      <li><a href="">Logout</a></li>
+      <li><a *ngIf="!authService.isLogged()" routerLink="/auth/register">Resgister</a></li>
+      <li><a *ngIf="!authService.isLogged()" routerLink="/auth/login">Login</a></li>
+      <li><a class="pointer" *ngIf="authService.isLogged()" (click)="authService.logout()">Logout</a></li>
     </ul>
   </nav>
 </header>

@@ -1,4 +1,4 @@
-export default class LogError {
+export default class Error {
   status: boolean;
   message: string;
   constructor() {

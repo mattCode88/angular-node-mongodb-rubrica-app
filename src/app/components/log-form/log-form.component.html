@@ -23,7 +23,7 @@
     <p class="error" *ngIf="logForm.controls['password'].hasError('required') && typeLog === 'register'">*Il campo è richiesto.</p>
     <p class="error" *ngIf="logForm.controls['password'].hasError('invalidPassword') && typeLog === 'register'">*La password deve contenere almeno una maiuscola un numero, un simbolo e avere almeno 8 caratteri.</p>
   </div>
-  <p class="error" *ngIf="erroreDiLog.status && typeLog === 'register'">{{erroreDiLog.message}}</p>
+  <p class="error" *ngIf="erroreDiLog.status">{{erroreDiLog.message}}</p>
   <button class="btn" *ngIf="logForm.valid && typeLog === 'register'" type="submit">Registrati</button>
   <button class="btn" *ngIf="typeLog === 'login'" type="submit">Login</button>
 </form>
