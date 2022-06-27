@@ -4,17 +4,14 @@
   padding: 0;
   margin: 0;
 }
-
 .container {
   width: 100%;
 }
-
 .row {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
-
 a {
   text-decoration: none;
 }
@@ -22,42 +19,55 @@ a {
 ul {
   list-style: none;
 }
-
+h2{
+  font-size: 30px;
+  color: crimson;
+  margin-bottom: 30px;
+}
+.btn {
+  margin-top: 20px;
+  border: none;
+  color: #fff;
+  padding: 8px 15px;
+  background-color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .error{
   color: crimson;
   font-size: 10px;
 }
+input {
+  appearance: none;
+  border: none;
+  padding: 0 10px 10px 10px;
+  margin: 15px 0 5px 0;
+}
+
+input:focus-within {
+  outline: none;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  border-bottom: 1px solid #333;
+  color: #333;
+}
+.section{
+  padding: 50px 70px;
+}
+.hide{
+  display: none;
+}
 
 // MARGIN
-.margin-top-bottom-lg {
-  margin-top: 6em;
-  margin-bottom: 6em;
-}
-
-.margin-top-bottom-md {
-  margin-top: 3em;
-  margin-bottom: 3em;
-}
-
-.margin-top-bottom-sm {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-/* PADDING */
-.padding-lf-rt-lg {
-  padding-left: 6em;
-  padding-right: 6em;
-}
-
-.padding-lf-rt-md {
-  padding-left: 3em;
-  padding-right: 3em;
-}
-
-.padding-lf-rt-sm {
-  padding-left: 1em;
-  padding-right: 1em;
+.mrg-bottom-small {
+  margin-bottom: 10px;
 }
 
 /* FLEX UTILITY********************************************************************************************************************************************* */

@@ -4,6 +4,8 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import User from '../classes/User';
+import ILogUser from '../interface/ILogUser';
+import Error from '../classes/Error';
 
 
 @Injectable({
@@ -18,20 +20,12 @@ export class AuthService {
     private readonly router: Router
   ) { }
 
-  findUser(user: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.ENDPOINT}/auth/user/username/${user}`)
+  createUsers(user: User): Observable<any> {
+    return this.http.post<User>(`${this.ENDPOINT}/auth/create`, user)
   }
 
-  findUserEmail(email: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.ENDPOINT}/auth/user/email/${email}`)
-  }
-
-  verifyPasswd(form: FormGroup): Observable<boolean> {
-    return this.http.post<boolean>(`${this.ENDPOINT}/auth/user/password`, form)
-  }
-
-  createUsers(form: FormGroup): Observable<User> {
-    return this.http.post<User>(`${this.ENDPOINT}/auth/create`, form)
+  logUser(logUser: ILogUser): Observable<Error> {
+    return this.http.post<Error>(`${this.ENDPOINT}/auth/login`, logUser)
   }
 
   login(username: string): boolean {
@@ -46,6 +40,10 @@ export class AuthService {
 
   isLogged(): boolean {
     return localStorage.getItem('username') !== null;
+  }
+
+  getLoggedIn(): string | null {
+    return localStorage.getItem('username')
   }
 
 }

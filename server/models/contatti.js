@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   telefono: {
-    type: Number,
+    type: String,
     required: true,
   },
   indirizzo: {
@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
     type: String,
   },
   dataDiNascita: {
-    type: Date,
+    type: String,
   },
   riferimentoUser: {
     type: String,

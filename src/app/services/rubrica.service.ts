@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { concat, Observable } from 'rxjs';
 import Contatto from '../classes/Contatto';
 
 @Injectable({
@@ -14,5 +14,9 @@ export class RubricaService {
 
   getUserForUsername(username: string): Observable<Contatto[]> {
     return this.http.get<Contatto[]>(`${this.ENDPOINT}/contatti/${username}`)
+  }
+
+  createNewContact(contact: Contatto): Observable<any> {
+    return this.http.post<Contatto>(`${this.ENDPOINT}/contatti/crea`, contact);
   }
 }

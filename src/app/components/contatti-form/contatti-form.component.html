@@ -1,33 +1,36 @@
-<p>contatti-form works!</p>
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <div class="field">
     <label for="nome" class="label">Nome</label>
     <div>
-      <input type="text" class="input" id="nome"  placeholder="Nome" formControlName="nome">
+      <input type="text" class="input" id="nome"  placeholder="Luigi" formControlName="nome">
     </div>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['nome'].hasError('required')">*Il campo è richiesto.</p>
   </div>
   <div class="field">
     <label for="cognome" class="label">Cognome</label>
     <div>
-      <input type="text" class="input" id="cognome"  placeholder="Cognome" formControlName="cognome">
+      <input type="text" class="input" id="cognome"  placeholder="Rossi" formControlName="cognome">
     </div>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['cognome'].hasError('required')">*Il campo è richiesto.</p>
   </div>
   <div class="field">
     <label for="telefono" class="label">Telefono</label>
     <div>
-      <input type="number" class="input" id="telefono"  placeholder="Telefono" formControlName="telefono">
+      <input type="text" class="input" id="telefono"  placeholder="3333232333" formControlName="telefono">
     </div>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['telefono'].hasError('required')">*Il campo è richiesto.</p>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['telefono'].hasError('invalidTelefono')">*Inserire numero valido.</p>
   </div>
   <div class="field">
     <label for="indirizzo" class="label">Indirizzo</label>
     <div>
-      <input type="text" class="input" id="indirizzo"  placeholder="Indirizzo" formControlName="indirizzo">
+      <input type="text" class="input" id="indirizzo"  placeholder="Via bene 2" formControlName="indirizzo">
     </div>
   </div>
   <div class="field">
     <label for="email" class="label">Email</label>
     <div>
-      <input type="text" class="input" id="email"  placeholder="Email" formControlName="email">
+      <input type="text" class="input" id="email"  placeholder="luigi.rossi@email.it" formControlName="email">
     </div>
   </div>
   <div class="field">
@@ -36,10 +39,6 @@
       <input type="date" class="input" id="dataDiNascita" formControlName="dataDiNascita">
     </div>
   </div>
-  <div class="field">
-    <label for="username" class="label">Username</label>
-    <div>
-      <input type="text" class="input" id="username"  placeholder="Username" formControlName="username">
-    </div>
-  </div>
+  <p class="error" *ngIf="error.status">{{error.message}}</p>
+  <button *ngIf="contactForm.valid" type="submit" class="btn">VAI</button>
 </form>

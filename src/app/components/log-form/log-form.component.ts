@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Error from 'src/app/classes/Error';
+import User from 'src/app/classes/User';
+import ILogUser from 'src/app/interface/ILogUser';
 import { AuthService } from 'src/app/services/auth.service';
 import AuthValidator from 'src/app/validators/auth-validator';
 import Swal from 'sweetalert2';
@@ -32,74 +34,45 @@ export class LogFormComponent implements OnInit {
 
   onSubmit(): void {
 
+    this.erroreDiLog.status = false;
+    this.erroreDiLog.message = '';
+
     if (this.typeLog === 'register' && this.logForm.valid) {
 
-      this.erroreDiLog.status = false;
-      this.erroreDiLog.message = '';
-
-      this.authServices.findUser(this.logForm.value.username).subscribe(res => {
-
-        if (res) {
-
-          this.erroreDiLog.status = true;
-          this.erroreDiLog.message = 'Username già registrato.'
-
+      const newUser = new User(
+        this.logForm.value.username,
+        this.logForm.value.email,
+        this.logForm.value.password
+      )
+      this.authServices.createUsers(newUser).subscribe(res => {
+        if (res.status) {
+          this.erroreDiLog.status = res.status;
+          this.erroreDiLog.message = res.message;
         } else {
-
-          this.authServices.findUserEmail(this.logForm.value.email).subscribe(res => {
-
-            if (res) {
-
-              this.erroreDiLog.status = true;
-              this.erroreDiLog.message = 'Email già registrata.'
-
-            } else {
-
-              this.authServices.createUsers(this.logForm.value).subscribe(res => {
-
-                if (res) {
-
-                  Swal.fire({
-                    title: 'Utente creato!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                  })
-
-                  this.router.navigateByUrl('/auth/login')
-
-                }
-              })
-            }
+          Swal.fire({
+            title: 'Utente creato!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
           })
+          this.router.navigateByUrl('/auth/login')
         }
       })
     }
 
     if (this.typeLog === 'login') {
 
-      this.authServices.findUser(this.logForm.value.username).subscribe(res => {
-
-        if (!res) {
-
-          this.erroreDiLog.status = true;
-          this.erroreDiLog.message = 'Utente non trovato.'
-
+      const halfUser: ILogUser = {
+        username: this.logForm.value.username,
+        password: this.logForm.value.password
+      }
+      this.authServices.logUser(halfUser).subscribe(res => {
+        console.log(res)
+        if (res.status) {
+          this.erroreDiLog.status = res.status;
+          this.erroreDiLog.message = res.message;
         } else {
-
-          this.authServices.verifyPasswd(this.logForm.value).subscribe(res => {
-
-            if (!res) {
-
-              this.erroreDiLog.status = true;
-              this.erroreDiLog.message = 'Password errata.'
-
-            } else {
-
-              this.authServices.login(this.logForm.value.username)
-              this.router.navigateByUrl('/contatti')
-
-            }
-          })
+          this.authServices.login(this.logForm.value.username)
+          this.router.navigateByUrl('/contatti')
         }
       })
     }
