@@ -56,12 +56,13 @@ export class ContattiFormComponent implements OnInit {
           this.error.status = res.status;
           this.error.message = res.message;
         } else {
-          console.log(res)
+          // console.log(res)
           Swal.fire({
             title: 'Contatto creato!',
             icon: 'success',
             confirmButtonText: 'Ok'
           })
+          this.router.navigateByUrl('/contatti')
         }
       })
     }

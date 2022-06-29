@@ -1,0 +1,3 @@
+<div *ngIf="listaContatti.length !== 0">
+    <app-contatti-detail *ngFor="let contatto of listaContatti" [contatto]="contatto" (takeIdContact)="cancellaContatto($event)"></app-contatti-detail>
+</div>

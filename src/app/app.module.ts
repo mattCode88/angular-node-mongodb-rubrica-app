@@ -11,18 +11,20 @@ import { RubricaModule } from './modules/rubrica/rubrica.module';
 import { HomePageComponent } from './views/home-page/home-page.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomePageComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    RubricaModule
+    RubricaModule,
   ],
   providers: [LoggedInGuard],
   bootstrap: [AppComponent]

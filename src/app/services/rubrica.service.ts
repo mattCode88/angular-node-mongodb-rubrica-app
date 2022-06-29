@@ -12,11 +12,16 @@ export class RubricaService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getUserForUsername(username: string): Observable<Contatto[]> {
-    return this.http.get<Contatto[]>(`${this.ENDPOINT}/contatti/${username}`)
-  }
-
   createNewContact(contact: Contatto): Observable<any> {
     return this.http.post<Contatto>(`${this.ENDPOINT}/contatti/crea`, contact);
   }
+
+  getContattiForUser(username: string | null): Observable<Contatto[]> {
+    return this.http.get<Contatto[]>(`${this.ENDPOINT}/contatti/${username}`)
+  }
+
+  deleteContact(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.ENDPOINT}/contatti/delete/${id}`);
+  }
+
 }

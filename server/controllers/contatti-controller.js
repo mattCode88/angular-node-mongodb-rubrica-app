@@ -1,10 +1,6 @@
 const ContattiCollection = require('../models/Contatti')
 const MyValidator = require('../validators/my-validator');
 
-// exports.getUserForUsername = async (req, res) => {
-
-// }
-
 exports.createContatto = async (req, res) => {
 
   if (req.body.nome.lenth < 3 || req.body.cognome.length < 3) {
@@ -63,4 +59,27 @@ exports.createContatto = async (req, res) => {
 
   contatto.save(contatto).then(data => res.send(data))
 
+}
+
+exports.getContattiForUser = async (req, res) => {
+
+  const contattoPerRiferimento = await ContattiCollection.find({ riferimentoUser: req.params.username });
+  res.send(contattoPerRiferimento)
+
+}
+
+exports.deleteContatto = async (req, res) => {
+  ContattiCollection.findByIdAndDelete(req.params.id)
+        .then(data => {
+            if(!data){
+                res.status(404).send({ message : `Il contatto con id: ${req.params.id} non è stata trovato!`})
+            }else{
+              res.send(true)
+            }
+        })
+        .catch(err =>{
+            res.status(500).send({
+                message: "Errore nell' aggiornamento delle informazioni!"
+            });
+        });
 }

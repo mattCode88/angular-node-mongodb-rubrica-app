@@ -7,5 +7,6 @@ export default class {
     public indirizzo?: string,
     public email?: string,
     public dataDiNascita?: Date,
+    public _id?: string
   ) { }
 }
