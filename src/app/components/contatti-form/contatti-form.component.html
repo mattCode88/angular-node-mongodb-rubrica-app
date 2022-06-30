@@ -30,8 +30,10 @@
   <div class="field">
     <label for="email" class="label">Email</label>
     <div>
-      <input type="text" class="input" id="email"  placeholder="luigi.rossi@email.it" formControlName="email">
+      <input type="email" class="input" id="email"  placeholder="luigi.rossi@email.it" formControlName="email">
     </div>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['email'].hasError('required')">*Il campo è richiesto.</p>
+    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['email'].hasError('invalidMail')">*Inserire email valida.</p>
   </div>
   <div class="field">
     <label for="dataDiNascita" class="label">Data di Nascita</label>
@@ -40,5 +42,5 @@
     </div>
   </div>
   <p class="error" *ngIf="error.status">{{error.message}}</p>
-  <button *ngIf="contactForm.valid" type="submit" class="btn">VAI</button>
+  <button *ngIf="contactForm.valid" type="submit" class="btn">{{isModifica ? 'MODIFICA' : 'CREA'}}</button>
 </form>

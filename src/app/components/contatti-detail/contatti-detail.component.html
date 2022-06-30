@@ -3,8 +3,8 @@
     <div class="col-3">{{contatto.nome}}</div>
     <div class="col-3">{{contatto.cognome}}</div>
     <div class="col-3">{{contatto.telefono}}</div>
-    <a class="col-1"><i class="fa-solid fa-pen-to-square"></i></a>
-    <a class="col-1"><i class="fa-solid fa-circle-info" [routerLink]="['/detail/', contatto.nome]"></i></a>
+    <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
+    <a class="col-1"><i class="fa-solid fa-circle-info" [routerLink]="['/detail/', contatto._id]"></i></a>
     <a class="col-1"><i class="fa-solid fa-trash" (click)="prendiContatto(contatto)"></i></a>
   </div>
 </div>
@@ -17,7 +17,7 @@
     <div class="col-1">{{contatto.indirizzo}}</div>
     <div class="col-1">{{contatto.email}}</div>
     <div class="col-1">{{contatto.dataDiNascita}}</div>
-    <a class="col-1"><i class="fa-solid fa-pen-to-square"></i></a>
+    <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
     <a class="col-1"><i class="fa-solid fa-trash" (click)="cancellaContatto(contatto)"></i></a>
   </div>
 </div>

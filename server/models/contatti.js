@@ -4,7 +4,6 @@ const schema = new mongoose.Schema({
   nome: {
     type: String,
     required: true,
-    unique: true
   },
   cognome: {
     type: String,
@@ -19,6 +18,7 @@ const schema = new mongoose.Schema({
   },
   email: {
     type: String,
+    required: true,
   },
   dataDiNascita: {
     type: String,

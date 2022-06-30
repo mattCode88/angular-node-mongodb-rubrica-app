@@ -16,6 +16,10 @@ export class RubricaService {
     return this.http.post<Contatto>(`${this.ENDPOINT}/contatti/crea`, contact);
   }
 
+  updateContact(contact: Contatto, id: string): Observable<any> {
+    return this.http.put<any[]>(`${this.ENDPOINT}/contatti/modifica`, [contact, id]);
+  }
+
   getContattiForUser(username: string | null): Observable<Contatto[]> {
     return this.http.get<Contatto[]>(`${this.ENDPOINT}/contatti/${username}`)
   }

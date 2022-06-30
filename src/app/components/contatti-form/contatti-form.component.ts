@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Contatto from 'src/app/classes/Contatto';
@@ -18,6 +18,10 @@ export class ContattiFormComponent implements OnInit {
   contactForm: FormGroup
   username: string | null;
   error = new Error();
+  isModifica: boolean = false;
+  idModifica: string = '';
+
+  @Input() contatto: Contatto | null = null;
 
   constructor(
     private readonly builder: FormBuilder,
@@ -33,7 +37,7 @@ export class ContattiFormComponent implements OnInit {
       cognome: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       telefono: ['', Validators.compose([Validators.required, ContattiValidator.validaTelefono()])],
       indirizzo: [''],
-      email: [''],
+      email: ['', Validators.compose([Validators.required, ContattiValidator.validaMail()])],
       dataDiNascita: [''],
     })
   }
@@ -51,24 +55,53 @@ export class ContattiFormComponent implements OnInit {
         this.contactForm.value.email,
         this.contactForm.value.dataDiNascita,
       )
-      this.rubricaServices.createNewContact(newContact).subscribe(res => {
-        if (res.status) {
-          this.error.status = res.status;
-          this.error.message = res.message;
-        } else {
-          // console.log(res)
-          Swal.fire({
-            title: 'Contatto creato!',
-            icon: 'success',
-            confirmButtonText: 'Ok'
-          })
-          this.router.navigateByUrl('/contatti')
-        }
-      })
+      if (!this.isModifica) {
+        this.rubricaServices.createNewContact(newContact).subscribe(res => {
+          if (res.status) {
+            this.error.status = res.status;
+            this.error.message = res.message;
+          } else {
+            Swal.fire({
+              title: 'Contatto creato!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            })
+            this.router.navigateByUrl('/contatti')
+          }
+        })
+      }
+      if (this.isModifica && this.contatto) {
+
+        this.idModifica = this.contatto._id!;
+
+        this.rubricaServices.updateContact(newContact, this.idModifica).subscribe(res => {
+          console.log(res)
+          if (res.status) {
+            this.error.status = res.status;
+            this.error.message = res.message;
+          } else {
+            Swal.fire({
+              title: 'Contatto aggiornato!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            })
+            this.router.navigateByUrl('/contatti')
+          }
+        })
+      }
     }
   }
 
   ngOnInit(): void {
+    if (this.contatto) {
+      this.contactForm.controls['nome'].setValue(this.contatto.nome);
+      this.contactForm.controls['cognome'].setValue(this.contatto.cognome);
+      this.contactForm.controls['telefono'].setValue(this.contatto.telefono);
+      this.contactForm.controls['indirizzo'].setValue(this.contatto.indirizzo);
+      this.contactForm.controls['email'].setValue(this.contatto.email);
+      this.contactForm.controls['dataDiNascita'].setValue(this.contatto.dataDiNascita);
+      this.isModifica = true;
+    }
   }
 
 }

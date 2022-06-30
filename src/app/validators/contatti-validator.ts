@@ -24,4 +24,17 @@ export default class ContattiValidator {
 
   }
 
+  static validaMail(): ValidatorFn | null {
+
+    const mailControl = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    return (control: AbstractControl): ValidationErrors | null => {
+      const mailVerificata = mailControl.exec(control.value);
+
+      return mailVerificata !== null ? null : { invalidMail: true }
+
+    }
+
+  }
+
 }
