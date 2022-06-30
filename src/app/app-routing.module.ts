@@ -6,7 +6,8 @@ import { HomePageComponent } from './views/home-page/home-page.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
-  { path: 'contatti', loadChildren: () => import('./modules/rubrica/rubrica.module').then(m => m.RubricaModule) }
+  { path: 'contatti', loadChildren: () => import('./modules/rubrica/rubrica.module').then(m => m.RubricaModule) },
+  { path: 'chat', loadChildren: () => import('./modules/chat/chat.module').then(m => m.ChatModule) },
 ];
 
 @NgModule({

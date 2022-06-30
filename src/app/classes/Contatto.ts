@@ -1,4 +1,4 @@
-export default class {
+export default class Contatto {
   constructor(
     public nome: string,
     public cognome: string,

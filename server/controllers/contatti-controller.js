@@ -1,4 +1,4 @@
-const ContattiCollection = require('../models/Contatti')
+const ContattiCollection = require('../models/Contatti');
 const MyValidator = require('../validators/my-validator');
 
 exports.createContatto = async (req, res) => {

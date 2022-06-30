@@ -7,7 +7,8 @@ const dotenv = require('dotenv');
 //funzione di connessione al DB
 const connectDb = require('./config/db-connection');
 const contattiApi = require('./api/contatti-api');
-const usersApi = require('./api/auth-api')
+const usersApi = require('./api/auth-api');
+const messaggiApi = require('./api/messaggi-api');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +28,7 @@ connectDb();
 
 app.use('/api', contattiApi);
 app.use('/api', usersApi);
+app.use('/api', messaggiApi);
 
 app.listen(PORT, () => console.log(`Server in ascolto sula porta ${PORT}`));
 
