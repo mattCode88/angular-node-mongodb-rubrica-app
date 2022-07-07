@@ -14,6 +14,10 @@ const schema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    isLogged: {
+      type: Boolean,
+      required: true,
     }
 });
 

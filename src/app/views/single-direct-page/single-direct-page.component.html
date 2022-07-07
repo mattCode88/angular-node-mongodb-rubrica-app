@@ -1,0 +1,7 @@
+<!--
+<div *ngIf="directFiltrati.length > 0">
+  <h2>{{directFiltrati[0].destinatario}}</h2>
+  <div *ngFor="let singleDirect of directFiltrati">{{ singleDirect.messaggio }}</div>
+</div> -->
+<app-chat-list [singleDirect]="singleDirect" [idDestinatario]="idDestinatario" [ultimoDirect]="ultimoDirect"></app-chat-list>
+<app-chat-form [isSingleDirect]="isSingleDirect" (lastMessage)="lastMessage($event)"></app-chat-form>

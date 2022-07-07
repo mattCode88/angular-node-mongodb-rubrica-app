@@ -18,8 +18,8 @@ export class ChatService {
     return this.http.post<Messaggio>(`${this.ENDPOINT}/crea-messaggio`, messaggio);
   }
 
-  getMessaggi(): Observable<Messaggio> {
-    return this.http.get<Messaggio>(`${this.ENDPOINT}/messaggi`);
+  getMessaggi(): Observable<Messaggio[]> {
+    return this.http.get<Messaggio[]>(`${this.ENDPOINT}/messaggi`);
   }
 
 }

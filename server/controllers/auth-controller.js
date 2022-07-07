@@ -40,7 +40,8 @@ exports.createUser = async(req, res) => {
   const user = new UserCollection({
     username: req.body.username,
     email: req.body.email,
-    password: hashedPassword
+    password: hashedPassword,
+    isLogged: false,
   });
 
   user.save(user).then(data => res.send(data))
@@ -70,6 +71,7 @@ exports.logUser = async (req, res) => {
   const boolPassword = bcrypt.compareSync(req.body.password, searchUser.password);
 
   if (boolPassword) {
+    await UserCollection.updateOne({ username: req.body.username }, { isLogged: true })
     const error = {
       status: false,
       message: ''
@@ -82,6 +84,16 @@ exports.logUser = async (req, res) => {
     }
     return res.send(error)
   }
+}
+
+exports.logout = async (req, res) => {
+  await UserCollection.updateOne({ username: req.params.username }, { isLogged: false })
+  res.send(true)
+}
+
+exports.getLogUsers = async (req, res) => {
+  const users = await UserCollection.find({ isLogged: true });
+  res.send(users)
 }
 
 

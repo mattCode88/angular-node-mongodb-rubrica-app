@@ -2,8 +2,16 @@ const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
   username: {
-      type: String,
-      required: true,
+    type: String,
+    required: true,
+  },
+  destinatario: {
+    type: String,
+    required: true,
+  },
+  destinatarioId: {
+    type: String,
+    required: true,
   },
   messaggio: {
     type: String,
@@ -19,6 +27,6 @@ const schema = new mongoose.Schema({
   }
 })
 
-const MessaggiCollection = mongoose.model('messaggicollections', schema);
+const DirectCollection = mongoose.model('directcollections', schema);
 
-module.exports = MessaggiCollection;
+module.exports = DirectCollection;

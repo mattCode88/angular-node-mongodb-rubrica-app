@@ -2,9 +2,43 @@
   height: 60px;
   .nav{
     height: 100%;
-    background-color: #333;
+    background-color: #0c6e52;
+    padding: 0 30px;
+    ul:first-of-type{
+      li{
+        span {
+            padding-left: 7px;
+          }
+      }
+    }
+    ul:last-of-type{
+      li.user{
+        padding-right: 15px;
+      }
+    }
     a{
       color: #fff;
+    }
+    li{
+      height: 100%;
+      a{
+        height: 100%;
+        transition: all .4s;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+      }
+    }
+    a:hover{
+      background-color: #0b4f3c;
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .nav{
+    span{
+      display: none;
     }
   }
 }

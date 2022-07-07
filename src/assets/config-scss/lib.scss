@@ -59,7 +59,9 @@ input[type="number"] {
   color: #333;
 }
 .section{
-  padding: 50px 70px;
+  // padding: 50px 70px;
+  height: calc(100vh - 60px);
+  // background-color: red;
 }
 .hide{
   display: none;

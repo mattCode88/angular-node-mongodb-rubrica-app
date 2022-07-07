@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import Messaggio from 'src/app/classes/Messaggio';
 
 @Component({
   selector: 'app-chat-page',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatPageComponent implements OnInit {
 
+  ultimoMessaggio: Messaggio | null = null;
+
   constructor() { }
+
+  lastMessage(messaggio: Messaggio): void {
+    this.ultimoMessaggio = messaggio
+  }
 
   ngOnInit(): void {
   }

@@ -75,7 +75,6 @@ export class ContattiFormComponent implements OnInit {
         this.idModifica = this.contatto._id!;
 
         this.rubricaServices.updateContact(newContact, this.idModifica).subscribe(res => {
-          console.log(res)
           if (res.status) {
             this.error.status = res.status;
             this.error.message = res.message;

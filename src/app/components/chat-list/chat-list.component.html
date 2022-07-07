@@ -1,1 +1,11 @@
-<p>chat-list works!</p>
+<div *ngIf="messaggi">
+  <div *ngFor="let messaggio of messaggi">{{messaggio.messaggio}} Inviato da: {{messaggio.username}}</div>
+</div>
+
+<div *ngIf="direct">
+  <a *ngFor="let destinatario of listaDestinatari" (click)="toSingleDirect(destinatario.idDestinatario)">{{ destinatario.destinatario }}</a>
+</div>
+
+<div *ngIf="singleDirect && directFiltrati.length > 0">
+  <div *ngFor="let direct of directFiltrati">{{ direct.messaggio }}</div>
+</div>

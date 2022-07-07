@@ -28,6 +28,14 @@ export class AuthService {
     return this.http.post<Error>(`${this.ENDPOINT}/auth/login`, logUser)
   }
 
+  disconnettiUser(username: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.ENDPOINT}/auth/logout/${username}`);
+  }
+
+  getLogUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.ENDPOINT}/auth/users`);
+  }
+
   login(username: string): boolean {
     localStorage.setItem('username', username);
     return true;
@@ -35,7 +43,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('username');
-    this.router.navigate(['/auth/login'])
   }
 
   isLogged(): boolean {

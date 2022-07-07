@@ -2,9 +2,10 @@
   <div class="row" *ngIf="contatto">
     <div class="col-3">{{contatto.nome}}</div>
     <div class="col-3">{{contatto.cognome}}</div>
-    <div class="col-3">{{contatto.telefono}}</div>
+    <div class="col-2">{{contatto.telefono}}</div>
     <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
     <a class="col-1"><i class="fa-solid fa-circle-info" [routerLink]="['/detail/', contatto._id]"></i></a>
+    <a class="col-1"><i class="fa-solid fa-message" [routerLink]="['/direct/', contatto._id]"></i></a>
     <a class="col-1"><i class="fa-solid fa-trash" (click)="prendiContatto(contatto)"></i></a>
   </div>
 </div>
@@ -18,6 +19,7 @@
     <div class="col-1">{{contatto.email}}</div>
     <div class="col-1">{{contatto.dataDiNascita}}</div>
     <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
+    <a class="col-1"><i class="fa-solid fa-message" [routerLink]="['/direct/', contatto._id]"></i></a>
     <a class="col-1"><i class="fa-solid fa-trash" (click)="cancellaContatto(contatto)"></i></a>
   </div>
 </div>

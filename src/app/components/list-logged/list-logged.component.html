@@ -1,0 +1,4 @@
+<h2>Utenti loggati:</h2>
+<div *ngIf="users.length > 0">
+  <a *ngFor="let user of users" (click)="apriDialogMessaggio()">{{user.username}}</a>
+</div>

@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { AuthModule } from './modules/auth/auth.module';
 import { ChatModule } from './modules/chat/chat.module';
+import { DirectModule } from './modules/direct/direct.module';
 import { RubricaModule } from './modules/rubrica/rubrica.module';
 import { HomePageComponent } from './views/home-page/home-page.component';
 
@@ -26,7 +27,8 @@ import { HomePageComponent } from './views/home-page/home-page.component';
     HttpClientModule,
     AuthModule,
     RubricaModule,
-    ChatModule
+    ChatModule,
+    DirectModule
   ],
   providers: [LoggedInGuard],
   bootstrap: [AppComponent]
