@@ -1,0 +1,29 @@
+h2{
+  color: #fff;
+  letter-spacing: 1px;
+}
+a{
+  font-size: 20px;
+  color: #fff;
+  margin-left: 5px;
+}
+i{
+  color: var(--color-user-ora);
+  font-size: 12px;
+}
+
+@media screen and (max-width: 767px){
+  h2{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 575px){
+  a {
+      font-size: 13px;
+    }
+
+  i {
+    font-size: 7px;
+  }
+}

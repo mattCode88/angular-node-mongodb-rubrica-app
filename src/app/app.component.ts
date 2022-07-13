@@ -8,21 +8,13 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // title = 'angular-rubrica-app';
-  // logUser: string = '';
 
-  constructor(
-    // private readonly authService: AuthService
-  ) {
+  username: string | null = null;
 
-    // this.logUser = this.authService.getLoggedIn()!;
-    // console.log(this.logUser)
-    // this.http.get('localhost:3000/api/contatti').subscribe(res => console.log(res))
-    // this.getUsers().subscribe((res) => console.log(res))
+  constructor(private readonly authService: AuthService) {
+
+    this.username = this.authService.getLoggedIn();
+
   }
 
-
-  // getUsers(): Observable<any[]> {
-  //   return this.http.get<any[]>('http://localhost:3000/api/contatti')
-  // };
 }

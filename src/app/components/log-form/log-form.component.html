@@ -4,7 +4,7 @@
     <div>
       <input type="text" class="input" id="username"  placeholder="Username" formControlName="username">
     </div>
-    <p class="error mrg-bottom-small" *ngIf="logForm.controls['username'].hasError('required')">*Il campo è richiesto.</p>
+    <p class="error mrg-bottom-small" *ngIf="logForm.controls['username'].hasError('required') && typeLog === 'register'">*Il campo è richiesto.</p>
     <p class="error mrg-bottom-small" *ngIf="logForm.controls['username'].hasError('minlength') && typeLog === 'register'">*Lo username deve avere almeno 3 caratteri.</p>
   </div>
   <div *ngIf="typeLog === 'register'" class="field">
@@ -20,10 +20,10 @@
     <div>
       <input type="password" class="input" id="password"  placeholder="Password" formControlName="password">
     </div>
-    <p class="error" *ngIf="logForm.controls['password'].hasError('required')">*Il campo è richiesto.</p>
+    <p class="error" *ngIf="logForm.controls['password'].hasError('required') && typeLog === 'register'">*Il campo è richiesto.</p>
     <p class="error" *ngIf="logForm.controls['password'].hasError('invalidPassword') && typeLog === 'register'">*La password deve contenere almeno una maiuscola un numero, un simbolo e avere almeno 8 caratteri.</p>
   </div>
   <p class="error" *ngIf="erroreDiLog.status">{{erroreDiLog.message}}</p>
   <button class="btn" *ngIf="logForm.valid && typeLog === 'register'" type="submit">Registrati</button>
-  <button class="btn" *ngIf="!logForm.controls['username'].hasError('required') && !logForm.controls['password'].hasError('required') && typeLog === 'login'" type="submit">Login</button>
+  <button class="btn" *ngIf="typeLog === 'login'" type="submit">Login</button>
 </form>

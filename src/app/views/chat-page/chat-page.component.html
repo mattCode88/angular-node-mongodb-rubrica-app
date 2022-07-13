@@ -1,12 +1,8 @@
 <section class="section-chat">
-  <!-- <div class="message-main"> -->
     <app-chat-list class="message-main" [messaggio]="ultimoMessaggio"></app-chat-list>
-  <!-- </div> -->
-  <!-- <div class="message-send"> -->
+
     <app-chat-form class="message-send" (lastMessage)="lastMessage($event)"></app-chat-form>
-  <!-- </div> -->
-  <!-- <div class="logged-user"> -->
+
     <app-list-logged class="logged-user"></app-list-logged>
-  <!-- </div> -->
 </section>
 

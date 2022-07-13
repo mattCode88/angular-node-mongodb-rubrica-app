@@ -1,0 +1,12 @@
+h2 {
+  color: #fff;
+  letter-spacing: 1px;
+
+  i {
+    color: var(--color-user-ora);
+  }
+
+  i:hover {
+    color: var(--color-data);
+  }
+}

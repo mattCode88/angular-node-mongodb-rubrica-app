@@ -1,3 +1,29 @@
 form{
-  // background-color: red;
+  background-color: var(--bg-color-nav);
+  height: 100%;
+  padding: 0 25px;
+  .field{
+    height: 70%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--bg-chat-message);
+    input{
+      background-color: var(--bg-chat-message);
+      border: none;
+      width: 95%;
+      color: #fff;
+      padding-left: 15px;
+      font-size: 16px;
+    }
+    button{
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      margin-right: 15px;
+      i{
+        color: #fff;
+        font-size: 20px;
+      }
+    }
+  }
 }

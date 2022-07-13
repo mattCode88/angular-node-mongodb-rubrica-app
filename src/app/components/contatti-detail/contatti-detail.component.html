@@ -1,26 +1,28 @@
 <div *ngIf="used === ''">
-  <div class="row" *ngIf="contatto">
-    <div class="col-3">{{contatto.nome}}</div>
-    <div class="col-3">{{contatto.cognome}}</div>
-    <div class="col-2">{{contatto.telefono}}</div>
-    <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
-    <a class="col-1"><i class="fa-solid fa-circle-info" [routerLink]="['/detail/', contatto._id]"></i></a>
-    <a class="col-1"><i class="fa-solid fa-message" [routerLink]="['/direct/', contatto._id]"></i></a>
-    <a class="col-1"><i class="fa-solid fa-trash" (click)="prendiContatto(contatto)"></i></a>
+  <div class="row container-contatti" *ngIf="contatto">
+    <div class="col-2 col-sm-3 offset-1 offset-sm-0">{{contatto.nome}}</div>
+    <div class="col-2 col-sm-3">{{contatto.cognome}}</div>
+    <div class="col-2 col-hide-sm">{{contatto.telefono}}</div>
+    <a class="col-1 col-hide-sm align-center"><i class="fa-solid fa-pen-to-square pointer" title="Modifica" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
+    <a class="col-1 col-sm-3 align-center"><i class="fa-solid fa-circle-info pointer" title="Info" [routerLink]="['/detail/', contatto._id]"></i></a>
+    <a class="col-1 col-sm-3 align-center"><i class="fa-solid fa-message pointer" title="Messaggio" [routerLink]="['/direct/', contatto._id]"></i></a>
+    <a class="col-1 col-hide-sm align-center"><i class="fa-solid fa-trash pointer" title="Elimina" (click)="prendiContatto(contatto)"></i></a>
   </div>
 </div>
 
 <div *ngIf="used === 'paginaDettaglio'">
-  <div class="row" *ngIf="contatto">
-    <div class="col-1">{{contatto.nome}}</div>
-    <div class="col-1">{{contatto.cognome}}</div>
-    <div class="col-1">{{contatto.telefono}}</div>
-    <div class="col-1">{{contatto.indirizzo}}</div>
-    <div class="col-1">{{contatto.email}}</div>
-    <div class="col-1">{{contatto.dataDiNascita}}</div>
-    <a class="col-1"><i class="fa-solid fa-pen-to-square" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
-    <a class="col-1"><i class="fa-solid fa-message" [routerLink]="['/direct/', contatto._id]"></i></a>
-    <a class="col-1"><i class="fa-solid fa-trash" (click)="cancellaContatto(contatto)"></i></a>
+  <div class="row container-contatto" *ngIf="contatto">
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Nome: </span> {{contatto.nome}}</div>
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Cognome: </span> {{contatto.cognome}}</div>
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Telefono: </span> {{contatto.telefono}}</div>
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Email: </span> {{contatto.email}}</div>
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Indirizzo: </span> {{contatto.indirizzo}}</div>
+    <div class="col-4 col-sm-12 col-md-6"><span class="titolo-dettagli">Compleanno: </span> {{contatto.dataDiNascita}}</div>
+    <div class="col-12 flex justify-center">
+      <a><i class="fa-solid fa-pen-to-square pointer" title="Modifica" [routerLink]="['/modifica-contatto', contatto._id]"></i></a>
+      <a><i class="fa-solid fa-message pointer" title="Messaggio" [routerLink]="['/direct/', contatto._id]"></i></a>
+      <a><i class="fa-solid fa-trash pointer" title="Elimina" (click)="cancellaContatto(contatto)"></i></a>
+    </div>
   </div>
 </div>
 

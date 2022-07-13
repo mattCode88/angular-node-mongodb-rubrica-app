@@ -1,19 +1,19 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <div class="field">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="row">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="nome" class="label">Nome</label>
     <div>
       <input type="text" class="input" id="nome"  placeholder="Luigi" formControlName="nome">
     </div>
-    <p class="error mrg-bottom-small" *ngIf="contactForm.controls['nome'].hasError('required')">*Il campo è richiesto.</p>
+    <p class="error mrg-bottom-small" *ngIf="!contactForm.controls['nome'].valid">*Il campo è richiesto.</p>
   </div>
-  <div class="field">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="cognome" class="label">Cognome</label>
     <div>
       <input type="text" class="input" id="cognome"  placeholder="Rossi" formControlName="cognome">
     </div>
     <p class="error mrg-bottom-small" *ngIf="contactForm.controls['cognome'].hasError('required')">*Il campo è richiesto.</p>
   </div>
-  <div class="field">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="telefono" class="label">Telefono</label>
     <div>
       <input type="text" class="input" id="telefono"  placeholder="3333232333" formControlName="telefono">
@@ -21,13 +21,13 @@
     <p class="error mrg-bottom-small" *ngIf="contactForm.controls['telefono'].hasError('required')">*Il campo è richiesto.</p>
     <p class="error mrg-bottom-small" *ngIf="contactForm.controls['telefono'].hasError('invalidTelefono')">*Inserire numero valido.</p>
   </div>
-  <div class="field">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="indirizzo" class="label">Indirizzo</label>
     <div>
       <input type="text" class="input" id="indirizzo"  placeholder="Via bene 2" formControlName="indirizzo">
     </div>
   </div>
-  <div class="field">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="email" class="label">Email</label>
     <div>
       <input type="email" class="input" id="email"  placeholder="luigi.rossi@email.it" formControlName="email">
@@ -35,12 +35,12 @@
     <p class="error mrg-bottom-small" *ngIf="contactForm.controls['email'].hasError('required')">*Il campo è richiesto.</p>
     <p class="error mrg-bottom-small" *ngIf="contactForm.controls['email'].hasError('invalidMail')">*Inserire email valida.</p>
   </div>
-  <div class="field">
+  <div class="field col-4 col-md-6 col-sm-12">
     <label for="dataDiNascita" class="label">Data di Nascita</label>
     <div>
       <input type="date" class="input" id="dataDiNascita" formControlName="dataDiNascita">
     </div>
   </div>
   <p class="error" *ngIf="error.status">{{error.message}}</p>
-  <button *ngIf="contactForm.valid" type="submit" class="btn">{{isModifica ? 'MODIFICA' : 'CREA'}}</button>
+  <button [disabled]="!contactForm.valid" type="submit" class="btn">{{isModifica ? 'MODIFICA' : 'CREA'}}</button>
 </form>

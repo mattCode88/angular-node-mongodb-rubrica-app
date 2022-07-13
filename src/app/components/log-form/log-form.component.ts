@@ -72,7 +72,7 @@ export class LogFormComponent implements OnInit {
           this.erroreDiLog.message = res.message;
         } else {
           this.authServices.login(this.logForm.value.username)
-          this.router.navigateByUrl('/contatti')
+          this.router.navigateByUrl('/home')
         }
       })
     }

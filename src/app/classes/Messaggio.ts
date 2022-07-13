@@ -5,6 +5,7 @@ export default class Messaggio {
     public destinatario?: string,
     public destinatarioId?: string,
     public oraDiInvio?: string,
+    public dataDiInvio?: string,
     public id?: string,
 
   ) { }

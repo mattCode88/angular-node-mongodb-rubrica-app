@@ -1,0 +1,22 @@
+form{
+  width: 100%;
+  .field{
+    padding: 5px 15px;
+    label{
+      color: var(--color-user-ora);
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    input {
+      background-color: var(--bg-chat-message);
+      border: none;
+      width: 100%;
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      margin: 15px 0;
+    }
+  }
+
+}

@@ -1,3 +1,9 @@
 <div *ngIf="listaContatti.length !== 0">
-    <app-contatti-detail *ngFor="let contatto of listaContatti" [contatto]="contatto" (takeIdContact)="cancellaContatto($event)"></app-contatti-detail>
+  <div class="row container-contatti">
+    <div class="col-2 col-sm-3 offset-1 offset-sm-0">NOME</div>
+    <div class="col-2 col-sm-3">COGNOME</div>
+    <div class="col-2 col-hide-sm">TELEFONO</div>
+    <div class="col-4 col-sm-6 align-center">AZIONI</div>
+  </div>
+  <app-contatti-detail *ngFor="let contatto of listaContatti" [contatto]="contatto" (takeIdContact)="cancellaContatto($event)"></app-contatti-detail>
 </div>

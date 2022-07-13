@@ -20,6 +20,7 @@ export class ChatListComponent implements OnInit, OnChanges {
   directs: Messaggio[] = [];
   listaDestinatari: IDestinatario[] = [];
   directFiltrati: Messaggio[] = [];
+  arrayDate: string[] = [];
   @Input() messaggio: Messaggio | null = null;
   @Input() idDestinatario: string = '';
   @Input() ultimoDirect: Messaggio | null = null;
@@ -46,11 +47,22 @@ export class ChatListComponent implements OnInit, OnChanges {
     return unico.map(str => JSON.parse(str));
   };
 
+  refreshPage(): void {
+    this.directService.getContattiDirect(this.username!).subscribe(res => {
+      this.directFiltrati = res.filter(messaggio => messaggio.destinatarioId === this.idDestinatario)
+    })
+  }
+
   ngOnInit(): void {
 
     if (!this.direct && !this.singleDirect) {
       this.chatService.getMessaggi().subscribe(res => {
         this.messaggi = res;
+        this.messaggi.forEach(messaggio => {
+          this.arrayDate.push(messaggio.dataDiInvio!)
+        })
+        this.arrayDate = [...new Set(this.arrayDate)]
+
       })
     }
 
@@ -69,17 +81,13 @@ export class ChatListComponent implements OnInit, OnChanges {
           })
 
           this.listaDestinatari = this.unificaArray(this.listaDestinatari)
-          // console.log(this.listaDestinatari)
+          console.log(this.listaDestinatari)
         }
       })
     }
 
     if (this.singleDirect) {
-      this.directService.getContattiDirect(this.username!).subscribe(res => {
-        this.directFiltrati = res.filter(messaggio => messaggio.destinatarioId === this.idDestinatario)
-        console.log(this.directFiltrati)
-      })
-
+      this.refreshPage();
     }
 
   }
@@ -89,6 +97,9 @@ export class ChatListComponent implements OnInit, OnChanges {
       this.chatService.getMessaggi().subscribe(res => {
         this.messaggi = res;
       })
+    }
+    if (this.ultimoDirect !== null) {
+      this.refreshPage();
     }
   }
 

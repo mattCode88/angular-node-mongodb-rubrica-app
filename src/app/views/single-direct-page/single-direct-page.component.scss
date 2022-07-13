@@ -1,0 +1,11 @@
+.section-direct{
+  height: calc(100vh - 60px);
+  .message-main{
+    height: calc(100% - 50px);
+    background-color: var(--bg-chat-list);
+    color: #fff;
+  }
+  .message-send{
+    height: 50px;
+  }
+}

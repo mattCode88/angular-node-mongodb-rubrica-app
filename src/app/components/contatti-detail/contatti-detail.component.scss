@@ -1,0 +1,30 @@
+.container-contatti{
+  color: #fff;
+  background-color: var(--bg-chat-message);
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 15px 0;
+  i:hover {
+    color: var(--color-data)
+  }
+}
+.container-contatto{
+  color: #fff;
+  background-color: var(--bg-chat-message);
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 15px 25px;
+  &>div{
+    padding: 15px 0;
+  }
+  &>div:last-of-type>a{
+    padding: 0 25px;
+  }
+  &>div:last-of-type>a>i:hover{
+    color: var(--color-data)
+  }
+  .titolo-dettagli{
+    color: var(--color-user-ora);
+    letter-spacing: 1px;
+  }
+}

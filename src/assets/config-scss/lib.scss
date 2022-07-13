@@ -24,44 +24,54 @@ h2{
   color: crimson;
   margin-bottom: 30px;
 }
+
 .btn {
-  margin-top: 20px;
+  // margin-top: 20px;
+  width: 20%;
   border: none;
   color: #fff;
+  font-weight: bold;
+  margin: 20px auto;
   padding: 8px 15px;
-  background-color: #333;
+  background-color: var(--bg-color-nav);
   border-radius: 5px;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 .error{
-  color: crimson;
+  color: var(--color-data);
   font-size: 10px;
 }
-input {
-  appearance: none;
-  border: none;
-  padding: 0 10px 10px 10px;
-  margin: 15px 0 5px 0;
-}
+// input {
+//   appearance: none;
+//   border: none;
+//   padding: 0 10px 10px 10px;
+//   margin: 15px 0 5px 0;
+// }
 
 input:focus-within {
   outline: none;
 }
 
-input::placeholder {
-  color: #000;
-}
+// input::placeholder {
+//   color: #000;
+// }
 
-input[type="text"],
-input[type="password"],
-input[type="number"] {
-  border-bottom: 1px solid #333;
-  color: #333;
-}
+// input[type="text"],
+// input[type="password"],
+// input[type="number"] {
+//   border-bottom: 1px solid #333;
+//   color: #333;
+// }
 .section{
-  // padding: 50px 70px;
+  padding: 50px 70px;
   height: calc(100vh - 60px);
-  // background-color: red;
+  background-color: var(--bg-chat-list);
+}
+.section-2{
+  min-height: calc(100vh - 60px);
+  padding: 50px 70px;
+  background-color: var(--bg-chat-list);
 }
 .hide{
   display: none;
@@ -106,6 +116,28 @@ input[type="number"] {
 .pointer {
   cursor: pointer;
 }
+.oraInvio{
+  font-size: 13px;
+  color: var(--color-user-ora);
+  font-weight: bold;
+}
+.utente-chat{
+  font-size: 20px;
+  color: var(--color-user-ora);
+  margin-bottom: 7px;
+}
+.data-invio{
+  color: var(--color-data);
+  font-size: 20px;
+  font-weight: bold;
+  width: fit-content;
+  margin: 5px auto;
+  letter-spacing: 1px;
+  // margin-left: 10%;
+}
+// .from-contatti{
+//   padding: 15px 20px;
+// }
 
 /* GRID****************************************************************************************************************************************************** */
 .col-12 {
@@ -714,6 +746,10 @@ input[type="number"] {
 
   .offset-sm-1 {
     margin-left: calc((100% / 12) * 1);
+  }
+  .offset-sm-0 {
+    margin-left: 0;
+    text-align: center;
   }
 }
 

@@ -1,9 +1,26 @@
-<div *ngIf="messaggi">
-  <div *ngFor="let messaggio of messaggi">{{messaggio.messaggio}} Inviato da: {{messaggio.username}}</div>
+<div *ngIf="messaggi" class="messaggi-list">
+  <div *ngFor="let data of arrayDate">
+    <div class="data-invio">{{data}}</div>
+    <ng-container *ngFor="let messaggio of messaggi">
+      <div *ngIf="data === messaggio.dataDiInvio">
+        <div class="messaggi-list-single">
+          <h3 class="utente-chat"><i class="fa-solid fa-circle"></i> {{messaggio.username}}</h3>
+          <p>{{messaggio.messaggio}}</p>
+          <p class="oraInvio">{{messaggio.oraDiInvio}}</p>
+        </div>
+
+      </div>
+
+    </ng-container>
+  </div>
+
 </div>
 
-<div *ngIf="direct">
-  <a *ngFor="let destinatario of listaDestinatari" (click)="toSingleDirect(destinatario.idDestinatario)">{{ destinatario.destinatario }}</a>
+<div *ngIf="direct && listaDestinatari.length > 0" class="destinatari-list">
+  <h2>Chat attive</h2>
+  <div *ngFor="let destinatario of listaDestinatari">
+    <a class="pointer" (click)="toSingleDirect(destinatario.idDestinatario)">{{ destinatario.destinatario }}</a>
+  </div>
 </div>
 
 <div *ngIf="singleDirect && directFiltrati.length > 0">

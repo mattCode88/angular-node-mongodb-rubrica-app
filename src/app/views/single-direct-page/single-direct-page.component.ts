@@ -12,7 +12,6 @@ import { DirectService } from 'src/app/services/direct.service';
 export class SingleDirectPageComponent implements OnInit {
 
   isSingleDirect = true;
-  username: string = '';
   idDestinatario: string = '';
   directFiltrati: Messaggio[] = [];
   ultimoDirect: Messaggio | null = null;
@@ -28,15 +27,10 @@ export class SingleDirectPageComponent implements OnInit {
       this.idDestinatario = params['id']
     });
 
-    this.username = this.authService.getLoggedIn()!;
-    // this.directService.getContattiDirect(this.username).subscribe(res => {
-    //   this.directFiltrati = res.filter(messaggio => messaggio.destinatarioId === this.idDestinatario)
-    // })
   }
 
   lastMessage(messaggio: Messaggio): void {
     this.ultimoDirect = messaggio;
-    console.log(this.ultimoDirect)
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 <header class="header">
   <nav class="nav row space-between">
     <ul class="flex item-center">
-      <li><a routerLink=""><i class="fa-solid fa-house"></i><span>HOME</span></a></li>
+      <li><a routerLink="home"><i class="fa-solid fa-house"></i><span>HOME</span></a></li>
       <li><a routerLink="contatti"><i class="fa-solid fa-address-card"></i><span>CONTATTI</span></a></li>
       <li><a routerLink="chat"><i class="fa-solid fa-comment"></i><span>CHAT</span></a></li>
       <li><a routerLink="direct"><i class="fa-solid fa-comments"></i><span>MESSAGGI</span></a></li>
@@ -9,7 +9,7 @@
     <ul class="flex item-center">
       <li *ngIf="!authService.isLogged()"><a routerLink="/auth/register">Resgister</a></li>
       <li *ngIf="!authService.isLogged()"><a routerLink="/auth/login">Login</a></li>
-      <li *ngIf="authService.isLogged()" class="flex item-center user">{{ username }}</li>
+      <!-- <li *ngIf="authService.isLogged()" class="flex item-center user">{{ username }}</li> -->
       <li *ngIf="authService.isLogged()"><a class="pointer" (click)="disconnettiUser()">Logout</a></li>
     </ul>
   </nav>

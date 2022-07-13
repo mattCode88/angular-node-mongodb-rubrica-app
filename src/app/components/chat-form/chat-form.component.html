@@ -1,9 +1,9 @@
-<!-- <h2 *ngIf="isSingleDirect">{{ destinatarioNome }}</h2> -->
-<form [formGroup]="chatForm" (ngSubmit)="onSubmit()" class="flex space-between item-center">
-  <div class="field">
-   <input type="textarea" class="input" placeholder="Scrivi qui il messaggio" formControlName="messaggio">
+<form [formGroup]="chatForm" (ngSubmit)="onSubmit()" class="flex item-center">
+  <div class="field flex item-center space-between">
+    <input type="textarea" class="input" placeholder="Scrivi qui il messaggio" formControlName="messaggio">
+    <div>
+      <button type="submit"><i class="fa-solid fa-share"></i></button>
+    </div>
   </div>
-  <div>
-    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-  </div>
+
 </form>
