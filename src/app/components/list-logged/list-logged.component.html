@@ -1,5 +1,4 @@
 <h2>Utenti loggati:</h2>
 <div *ngIf="users.length > 0">
-  <i class="fa-solid fa-circle"></i>
-  <a *ngFor="let user of users" (click)="apriDialogMessaggio()">{{user.username}}</a>
+  <a class="pointer" *ngFor="let user of users" (click)="apriDialogMessaggio()"><i class="fa-solid fa-circle"></i> {{user.username}}<br></a>
 </div>

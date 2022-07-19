@@ -1,7 +1,7 @@
 <div *ngIf="messaggi" class="messaggi-list">
   <div *ngFor="let data of arrayDate">
     <div class="data-invio">{{data}}</div>
-    <ng-container *ngFor="let messaggio of messaggi">
+    <ng-container *ngFor="let messaggio of mex">
       <div *ngIf="data === messaggio.dataDiInvio">
         <div class="messaggi-list-single">
           <h3 class="utente-chat"><i class="fa-solid fa-circle"></i> {{messaggio.username}}</h3>
@@ -24,5 +24,6 @@
 </div>
 
 <div *ngIf="singleDirect && directFiltrati.length > 0">
-  <div *ngFor="let direct of directFiltrati">{{ direct.messaggio }}</div>
+  <h3 class="align-center">Stai messaggiando con {{directFiltrati[0].destinatario}}</h3>
+  <div class="messaggi-list-single messaggio-direct" *ngFor="let direct of directFiltrati">{{ direct.messaggio }}</div>
 </div>

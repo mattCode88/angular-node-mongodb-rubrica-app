@@ -24,4 +24,16 @@
     color: #fff;
     letter-spacing: 1px;
   }
+  a{
+    color: var(--color-user-ora)
+  }
+}
+
+h3{
+  padding: 20px 0;
+}
+.messaggio-direct {
+  width: 70%;
+  padding-top: 15px;
+  margin: 0 auto 15px auto;
 }

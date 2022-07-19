@@ -16,6 +16,7 @@ import { DirectService } from 'src/app/services/direct.service';
 export class ChatListComponent implements OnInit, OnChanges {
 
   messaggi?: Messaggio[];
+  mex?: Messaggio[];
   username: string | null = '';
   directs: Messaggio[] = [];
   listaDestinatari: IDestinatario[] = [];
@@ -58,6 +59,7 @@ export class ChatListComponent implements OnInit, OnChanges {
     if (!this.direct && !this.singleDirect) {
       this.chatService.getMessaggi().subscribe(res => {
         this.messaggi = res;
+        this.mex = this.messaggi.reverse();
         this.messaggi.forEach(messaggio => {
           this.arrayDate.push(messaggio.dataDiInvio!)
         })
@@ -96,6 +98,7 @@ export class ChatListComponent implements OnInit, OnChanges {
     if (this.messaggio !== null) {
       this.chatService.getMessaggi().subscribe(res => {
         this.messaggi = res;
+        this.mex = this.messaggi.reverse();
       })
     }
     if (this.ultimoDirect !== null) {
